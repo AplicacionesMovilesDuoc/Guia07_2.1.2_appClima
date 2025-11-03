@@ -11,37 +11,27 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.mjperezm.guia07_212_appmoviles.ui.theme.Guia07_212_appMovilesTheme
+import com.mjperezm.guia07_212_appmoviles.ui.theme.AppClimaTheme
+
+
+
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import com.mjperezm.guia07_212_appmoviles.ui.screens.WeatherScreen
+import com.mjperezm.guia07_212_appmoviles.ui.theme.AppClimaTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            Guia07_212_appMovilesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+            AppClimaTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    WeatherScreen()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Guia07_212_appMovilesTheme {
-        Greeting("Android")
     }
 }
